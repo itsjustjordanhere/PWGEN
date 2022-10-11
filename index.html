@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+    <noscript>
+        <div class="noscript">
+            <h1>JavaScript is disabled</h1>
+            <p>Please enable JavaScript to use this website.</p>
+        </div>
+    </noscript>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="https://www.github.com/itsjustjordanhere" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" viewbox="-8 0 512 512" width="1em" height="1em"
+                    fill="currentColor" class="fs-1 githubIcon">
+                    <!-- Font Awesome Free 6.1.1 by @fontawesome - https: // fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
+                    <path
+                        d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
+                    </path>
+                </svg>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div>
+                <h1>Generate a password</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="item">
+                    <button class="btn-primary" id="generatePasswordBtn" type="button">
+                        GENERATE PASSWORD
+                    </button>
+                </div>
+                <div class="item">
+                    <button class="btn-primary" id="copyPasswordBtn" type="button">
+                        COPY PASSWORD</button><span id="tooltipSpan"> </span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="options">
+                    <input class="radioStyles" type="radio" id="standard" />
+                    <label for="standard">Standard (16)</label>
+                </div>
+                <div class="options">
+                    <input type="radio" id="medium" />
+                    <label for="medium">Medium (32)</label>
+                </div>
+                <div class="row">
+                    <div class="dspgw">
+                        <span id="passwordDisplay">password123</span>
+                    </div>
+                </div>
+                <div class="options">
+                    <input type="radio" id="strong" />
+                    <label for="strong">Strong (64)</label>
+                </div>
+                <div class="options">
+                    <input type="radio" id="ultra" />
+                    <label for="ultra">Ultra (128)</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <button class="btn-primary" id="viewCode" type="button">
+            VIEW THE CODE
+        </button>
+    </div>
+    <div id="displayCode">
+        <pre>
+            <code>
+                const pwGenBtn = document.getElementById("generatePasswordBtn");
+                const pwCopyBtn = document.getElementById("copyPasswordBtn");
+                const pwGenDisplay = document.getElementById("passwordDisplay");
+                const viewCode = document.getElementById("viewCode");
+                const displayCode = document.getElementById("displayCode");
+                const charSettings = {
+                    standard: 16,
+                    medium: 32,
+                    strong: 64,
+                    ultra: 128,
+                };
+                
+                const charCheckBox = [
+                    {
+                        id: "standard",
+                        value: 16,
+                    },
+                    {
+                        id: "medium",
+                        value: 32,
+                    },
+                    {
+                        id: "strong",
+                        value: 64,
+                    },
+                    {
+                        id: "ultra",
+                        value: 128,
+                    },
+                ];
+                
+                window.onload = () => {
+                    displayCode.style.display = "none";
+                };
+                
+                const getCharSettings = () => {
+                    let charSettings = 16;
+                    for (let i = 0; i < charCheckBox.length; i++) {
+                        if (document.getElementById(charCheckBox[i].id).checked) {
+                            charSettings = charCheckBox[i].value;
+                        }
+                    }
+                    return charSettings;
+                };
+                
+                const radioBtns = document.querySelectorAll('input[type="radio"]');
+                for (let i = 0; i < radioBtns.length; i++) {
+                    radioBtns[i].addEventListener("change", function () {
+                        for (let j = 0; j < radioBtns.length; j++) {
+                            if (radioBtns[j] !== this) {
+                                radioBtns[j].checked = false;
+                            }
+                        }
+                    });
+                }
+                
+                const generatePassword = () => {
+                    let charSettings = getCharSettings();
+                    let password = "";
+                    let possible =
+                        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=";
+                    for (let i = 0; i < charSettings; i++) {
+                        password += possible.charAt(Math.floor(Math.random() * possible.length));
+                    }
+                    return password;
+                };
+                
+                pwGenBtn.addEventListener("click", () => {
+                    pwGenDisplay.textContent = generatePassword();
+                });
+                
+                pwCopyBtn.addEventListener("click", () => {
+                    navigator.clipboard.writeText(pwGenDisplay.textContent);
+                    document.getElementById("tooltipSpan").style.visibility = "visible";
+                    document.getElementById("tooltipSpan").textContent = "Copied!";
+                    setTimeout(() => {
+                        document.getElementById("tooltipSpan").style.visibility = "hidden";
+                    }, 1000);
+                });
+                
+                viewCode.addEventListener("click", () => {
+                    if (displayCode.style.display === "none") {
+                        displayCode.style.display = "block";
+                        viewCode.textContent = "Hide Code";
+                        displayCode.style.margin = "auto";
+                        displayCode.style.display = "flex";
+                        displayCode.style.justifyContent = "center";
+                    } else {
+                        displayCode.style.display = "none";
+                        viewCode.textContent = "View Code";
+                    }
+                });
+                
+                pwGenBtn.addEventListener("click", () => {
+                    let i = 0;
+                    let txt = generatePassword();
+                    let speed = 40;
+                    document.getElementById("passwordDisplay").textContent = "";
+                    function typeWriter() {
+                        if (i < txt.length) {
+                            document.getElementById("passwordDisplay").textContent += txt.charAt(i);
+                            i++;
+                            setTimeout(typeWriter, speed);
+                        }
+                    }
+                    typeWriter();
+                });                                
+            </code>
+        </pre>
+    </div>
+    <script src="assets/js/_pwgen.js"></script>
+</body>
+
+</html>
