@@ -1,8 +1,7 @@
 const pwGenBtn = document.getElementById("generatePasswordBtn");
 const pwCopyBtn = document.getElementById("copyPasswordBtn");
 const pwGenDisplay = document.getElementById("passwordDisplay");
-const viewCode = document.getElementById("viewCode");
-const displayCode = document.getElementById("displayCode");
+const displayCopied = document.getElementById("tooltipSpan");
 const charSettings = {
     standard: 16,
     medium: 32,
@@ -28,10 +27,6 @@ const charCheckBox = [
         value: 128,
     },
 ];
-
-window.onload = () => {
-    displayCode.style.display = "none";
-};
 
 const getCharSettings = () => {
     let charSettings = 16;
@@ -71,37 +66,24 @@ pwGenBtn.addEventListener("click", () => {
 
 pwCopyBtn.addEventListener("click", () => {
     navigator.clipboard.writeText(pwGenDisplay.textContent);
-    document.getElementById("tooltipSpan").style.visibility = "visible";
-    document.getElementById("tooltipSpan").textContent = "Copied!";
+    displayCopied.textContent = "Copied!";
     setTimeout(() => {
-        document.getElementById("tooltipSpan").style.visibility = "hidden";
+        displayCopied.textContent = "";
     }, 1000);
-});
-
-viewCode.addEventListener("click", () => {
-    if (displayCode.style.display === "none") {
-        displayCode.style.display = "block";
-        viewCode.textContent = "Hide Code";
-        displayCode.style.margin = "auto";
-        displayCode.style.display = "flex";
-        displayCode.style.justifyContent = "center";
-    } else {
-        displayCode.style.display = "none";
-        viewCode.textContent = "View Code";
-    }
 });
 
 pwGenBtn.addEventListener("click", () => {
     let i = 0;
     let txt = generatePassword();
     let speed = 40;
-    document.getElementById("passwordDisplay").textContent = "";
+    pwGenDisplay.textContent = "";
     function typeWriter() {
         if (i < txt.length) {
-            document.getElementById("passwordDisplay").textContent += txt.charAt(i);
+            pwGenDisplay.textContent += txt.charAt(i);
             i++;
             setTimeout(typeWriter, speed);
         }
     }
     typeWriter();
 });
+
