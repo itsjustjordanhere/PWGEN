@@ -24,6 +24,10 @@ body {
     font-size: 1rem;
 }
 
+.btn-copy {
+    margin-top: 1rem;
+}
+
 .btn-primary:hover {
     background: #333;
     color: #f4f4f4;
@@ -83,7 +87,6 @@ body {
     margin: auto;
     color: #fafafa;
     border-radius: 20px;
-    /*  https://github.com/itsjustjordanhere/PWGEN/issues/2 */
     word-wrap: break-word;
     overflow: auto;
 }
