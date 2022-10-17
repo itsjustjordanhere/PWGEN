@@ -61,21 +61,10 @@ const generatePassword = () => {
 };
 
 pwGenBtn.addEventListener("click", () => {
-    pwGenDisplay.textContent = generatePassword();
-});
-
-pwCopyBtn.addEventListener("click", () => {
-    navigator.clipboard.writeText(pwGenDisplay.textContent);
-    displayCopied.textContent = "Copied!";
-    setTimeout(() => {
-        displayCopied.textContent = "";
-    }, 1000);
-});
-
-pwGenBtn.addEventListener("click", () => {
+    let a = pwGenDisplay.textContent = generatePassword();
     let i = 0;
-    let txt = generatePassword();
-    let speed = 40;
+    let txt = a
+    let speed = 30;
     pwGenDisplay.textContent = "";
     function typeWriter() {
         if (i < txt.length) {
@@ -85,5 +74,13 @@ pwGenBtn.addEventListener("click", () => {
         }
     }
     typeWriter();
+});
+
+pwCopyBtn.addEventListener("click", () => {
+    navigator.clipboard.writeText(pwGenDisplay.textContent);
+    displayCopied.textContent = "Copied!";
+    setTimeout(() => {
+        displayCopied.textContent = "";
+    }, 1000);
 });
 
