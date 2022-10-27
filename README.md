@@ -15,6 +15,3 @@ The goal of this project was to produce passwords. It is a straightforward passw
 
 ## Author
 * itsjustjordanhere
-
-## License
-This project is licensed under the MIT License - see the LICENSE.md file for details
