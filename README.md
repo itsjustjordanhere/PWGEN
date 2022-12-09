@@ -12,6 +12,3 @@ The goal of this project was to produce passwords. It is a straightforward passw
 
 ## Preview of the project
 ![Preview of the project](preview.png)
-
-## Author
-* slingJin30
